@@ -12,9 +12,11 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Data\SeedData\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Qgis\" />
+    <Folder Include="Data\SeedData\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.8" />
