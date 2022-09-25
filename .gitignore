@@ -1,3 +1,4 @@
+# Common
 .vs
 bin
 obj
@@ -6,3 +7,6 @@ obj
 # TypeScript
 *.map
 ts/*.js
+
+# Docker volumes
+mssqlserver
