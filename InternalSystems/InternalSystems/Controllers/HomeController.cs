@@ -23,9 +23,6 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ServicePointManager.ServerCertificateValidationCallback =
-            new RemoteCertificateValidationCallback(ValidateServerCertificate);
-
         var sqlDataService = new SqlDataService(_configuration);
         var connection = new SqlConnection();
         connection.ConnectionString = sqlDataService.GetConnectionString();
@@ -67,29 +64,5 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public static bool ValidateServerCertificate(
-            object sender,
-            X509Certificate certificate,
-            X509Chain chain,
-            SslPolicyErrors sslPolicyErrors)
-    {
-        if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
-        {
-            return true;
-        }
-
-        if (sender is System.Net.WebRequest)
-        {
-            System.Net.WebRequest Request = (System.Net.WebRequest)sender;
-
-            switch (Request.RequestUri.Host)
-            {
-                case "localhost":
-                    return true;
-            }
-        }
-
-        return false;
-    }
 }
 
