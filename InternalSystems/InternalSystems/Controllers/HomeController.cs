@@ -64,5 +64,24 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    public IActionResult ExportZip()
+    {
+        try
+        {
+            string filePath = _configuration["Uploads"];
+            var zs = new ZipArchiveService();
+            byte[] bytes = zs.ConvertFilesToBytesForZip(filePath);
+
+            return File(bytes, "application/zip", "Archive.zip");
+        }
+        catch (Exception ex)
+        {
+            var failed = new ContentResult();
+            failed.Content = ex.Message + Environment.NewLine + ex.StackTrace;
+
+            return failed;
+        }
+    }
+
 }
 

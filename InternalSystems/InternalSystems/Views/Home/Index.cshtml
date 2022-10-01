@@ -12,4 +12,10 @@
     <button type="button" class="btn btn-primary btn-md" onclick="TSButton()">
         Click Me
     </button>
+
+    <br />
+    @using (Html.BeginForm("ExportZip", "Home"))
+    {
+        <button>test Archive</button>
+    }
 </div>

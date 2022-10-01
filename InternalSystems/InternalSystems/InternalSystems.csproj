@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="scripts\" />
     <Folder Include="Service\" />
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.8.3">
@@ -40,5 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="scripts\app.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Uploads\" />
   </ItemGroup>
 </Project>
